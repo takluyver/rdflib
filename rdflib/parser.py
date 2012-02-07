@@ -11,18 +11,19 @@ want to do so through the Graph class parse method.
 """
 
 import os
-import __builtin__
-import warnings
+# import __builtin__
+# import warnings
 from urllib import pathname2url, url2pathname
-from urllib2 import urlopen, Request, HTTPError
+from urllib2 import urlopen, Request #, HTTPError
 from urlparse import urljoin
-try:
+from py3compat import PY3
+if PY3:
     from io import BytesIO
-except:
+else:
     from StringIO import StringIO as BytesIO
 from xml.sax import xmlreader
-from xml.sax.saxutils import prepare_input_source
-import types
+# from xml.sax.saxutils import prepare_input_source
+# import types
 
 from rdflib import __version__
 from rdflib.term import URIRef
